@@ -1,0 +1,19 @@
+h1 {
+   color:white;
+}
+
+body {
+   /*background: white url("../images/fondo.jpg") no-repeat;*/
+   background: white url("https://img.freepik.com/psd-gratis/diseno-fondo-abstracto_1297-87.jpg?size=626&ext=jpg") no-repeat;
+   background-size: 100% 100%;
+}
+
+.img-spam{
+   height: 100px;
+   width: 100px;
+   border-radius: 50%;
+}
+
+.row{
+   margin-right: 0px !important;
+}
