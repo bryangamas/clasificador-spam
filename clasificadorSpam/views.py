@@ -1,5 +1,5 @@
 from django.http import HttpResponse
-from django.shortcuts import render #, get_object_or_404
+from django.shortcuts import render, redirect #, get_object_or_404
 from .logica import entrenar_clasificador 
 from .logica import Clasificador
 
@@ -8,11 +8,11 @@ def index(request):
 
 def entrenar(request):
    entrenar_clasificador()
-   return render(request, 'inicio.html')
+   return redirect('formulario')
    #return HttpResponse("You're looking at question %s." % Clasificador.PI_SPAM)
 
 def formulario(request):
-    return render(request, 'inicio.html')
+    return render(request, 'formulario.html')
 
 def results(request, question_id):
     response = "You're looking at the results of question %s."

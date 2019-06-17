@@ -17,3 +17,11 @@ body {
 .row{
    margin-right: 0px !important;
 }
+
+#textAreaMensaje{
+   height: 250px;
+}
+
+.horizontal{
+   width: 700px;
+}

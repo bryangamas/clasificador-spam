@@ -4,6 +4,9 @@
    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+   <link rel="icon" 
+      type="image/png" 
+      href="https://i1.wp.com/ramok.tech/wp-content/uploads/2017/09/spam.png?fit=256%2C256">
 </head>
 
 <body>
@@ -13,10 +16,9 @@
          Clasificador de mensajes SPAM</h1>
    </div>
 
-   <div style="padding-top: 10%" class="row col-xs-12 justify-content-center align-items-center">
-      <form method="get" action="/clasificadorSpam/entrenar">
-         
-      </form>
+   <div style="padding-top: 3%" class="row col-xs-12 justify-content-center align-items-center">
+      {% block content %}
+      {% endblock %}
    </div>
 
 

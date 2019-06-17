@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+   <form method="get" action="/clasificadorSpam/entrenar">
+      <div class="form-group ">
+         <label for="textAreaMensaje" class="text-center horizontal display-4 text-white">Mensaje a analizar</label>
+         <textarea class="form-control form-control-lg horizontal" id="textAreaMensaje" rows="3"></textarea>
+      </div>
+   </form>
+{% endblock %}

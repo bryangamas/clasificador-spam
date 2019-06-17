@@ -4,6 +4,7 @@ $( document ).ready(()=> {
 
    $btn_entrenar.on("click", ()=>{
       $btn_entrenar.find("i").toggleClass('fa-brain fa-spinner fa-pulse');
+      //$btn_entrenar.attr('disabled', true);
    })
 
 });
