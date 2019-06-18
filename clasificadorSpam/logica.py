@@ -22,15 +22,19 @@ STOP_WORDS = [
 ]
 
 class Clasificador:
-    DICCIONARIO = 0             # Almacena las palabras consideradas para la clasificación (conjunto de características)
+    DICCIONARIO = None             # Almacena las palabras consideradas para la clasificación (conjunto de características)
 
-    PROBABILIDAD_PALABRAS = 0   # Matriz de Nx3, donde N es la cantidad de palabras del diccionario
+    PROBABILIDAD_PALABRAS = None   # Matriz de Nx3, donde N es la cantidad de palabras del diccionario
                                         # La 1era columna es la palabra en cuestión
                                         # La 2da  columna es la probabilidad de que la palabra se encuentre en un mensaje SPAM
                                         # La 3era columna es la probabilidad de que la palabra se encuentre en un mensaje HAM
                                         
-    PI_SPAM = 0                 # La probabilidad de que, dentro del dataset de entrenamiento, un mensaje sea SPAM
-    PI_HAM = 0                  # La probabilidad de que, dentro del dataset de entrenamiento, un mensaje sea HAM
+    PI_SPAM = None                 # La probabilidad de que, dentro del dataset de entrenamiento, un mensaje sea SPAM
+    PI_HAM = None                  # La probabilidad de que, dentro del dataset de entrenamiento, un mensaje sea HAM
+
+    DATASET_ORIGINAL = None        # Es el dataset original, etiqueta y mensaje, respectivente
+
+
 
 def entrenar_clasificador():
     path = os.path.dirname(os.path.abspath(__file__)) 
@@ -39,6 +43,8 @@ def entrenar_clasificador():
                     sep='\\t', 
                     names=['etiqueta','mensaje'],
                     engine='python')
+    # Seteamos el Dataset original
+    Clasificador.DATASET_ORIGINAL = df
     df = df.replace('\d+', 'number', regex=True)
     df = df.apply(lambda x: x.astype(str).str.lower()) # To lower case
     df['mensaje'] = df['mensaje'].str.replace('http\S+|www.\S+', 'httpaddr', case=False) # Reemplazamos urls
