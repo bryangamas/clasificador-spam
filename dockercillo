@@ -1,0 +1,9 @@
+FROM python:3.6
+
+ENV PYTHONUNBUFFERED 1
+
+RUN pip install django
+RUN pip install pandas
+RUN pip install scikit-lern
+
+EXPOSE 8000
