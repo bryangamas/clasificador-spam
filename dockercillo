@@ -4,6 +4,6 @@ ENV PYTHONUNBUFFERED 1
 
 RUN pip install django
 RUN pip install pandas
-RUN pip install scikit-lern
+RUN pip install scikit-learn
 
 EXPOSE 8000
