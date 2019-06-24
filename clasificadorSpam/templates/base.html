@@ -3,10 +3,39 @@
 <head>
    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-   <link rel="stylesheet" href="{% static 'css/style.css' %}">
+   <!--link rel="stylesheet" href="{% static 'css/style.css' %}"-->
    <link rel="icon" 
       type="image/png" 
       href="https://i1.wp.com/ramok.tech/wp-content/uploads/2017/09/spam.png?fit=256%2C256">
+   <style>
+      h1 {
+         color:white;
+      }
+
+      body {
+         /*background: white url("../images/fondo.jpg") no-repeat;*/
+         background: white url("https://img.freepik.com/psd-gratis/diseno-fondo-abstracto_1297-87.jpg?size=626&ext=jpg") no-repeat;
+         background-size: 100% 100%;
+      }
+
+      .img-spam{
+         height: 100px;
+         width: 100px;
+         border-radius: 50%;
+      }
+
+      .row{
+         margin-right: 0px !important;
+      }
+
+      #text-area-msj{
+         height: 250px;
+      }
+
+      .horizontal{
+         width: 700px;
+      }
+   </style>
 </head>
 
 <body>
@@ -33,5 +62,30 @@
       crossorigin="anonymous"></script>
    <script src="https://kit.fontawesome.com/ded6ebd19b.js"></script>
    <script type="text/javascript" src="https://code.jquery.com/jquery-1.8.2.js"></script>
-   <script type="text/javascript" src="{% static 'js/inicio.js' %}"></script>
+   <!--script type="text/javascript" src="{% static 'js/inicio.js' %}"></script-->
+   <script>
+      $( document ).ready(()=> {
+         var getUrl = window.location;
+         var baseUrl = getUrl .protocol + "//" + getUrl.host + "/" + getUrl.pathname.split('/')[1];
+         
+         $btn_entrenar = $("#btn-entrenar")
+         $btn_mensaje_aleatorio = $("#btn-msj-aleatorio")
+         $area_mensaje = $("#text-area-msj")
+
+         $btn_entrenar.on("click", ()=>{
+            $btn_entrenar.find("i").toggleClass('fa-brain fa-spinner fa-pulse');
+            //$btn_entrenar.attr('disabled', true);
+         })
+
+         $btn_mensaje_aleatorio.on("click", ()=>{
+            $.ajax({
+               url: baseUrl + "/aleatorio", 
+               success: function(result){
+                  $area_mensaje.html(result.mensaje);
+               }
+            });
+         })
+
+      });
+   </script>
 </body>
