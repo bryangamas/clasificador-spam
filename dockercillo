@@ -1,9 +1,15 @@
 FROM python:3.6
 
-ENV PYTHONUNBUFFERED 1
+RUN mkdir -p /opt/services/djangoapp/src
+WORKDIR /opt/services/djangoapp/src
 
-RUN pip install django
-RUN pip install pandas
-RUN pip install scikit-learn
+RUN pip install gunicorn django psycopg2-binary whitenoise pandas scikit-learn
+
+COPY . /opt/services/djangoapp/src
 
 EXPOSE 8000
+
+COPY init.sh /usr/local/bin/
+	
+RUN chmod u+x /usr/local/bin/init.sh
+ENTRYPOINT ["init.sh"]
