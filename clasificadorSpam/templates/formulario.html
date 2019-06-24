@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
 {% block content %}
-<div class="col-md-6" >
-   <div class="row align-items-center">
-      <button id="btn-msj-aleatorio" class="btn btn-primary col-md-12">
+<div class="col-md-12" >
+   <div class="row align-items-center justify-content-center ">
+      <button id="btn-msj-aleatorio" class="btn btn-primary horizontal">
          Elegir mensaje aleatoriamente
       </button>
    </div>
-   <div class="row">
+   <div class="row justify-content-center align-items-center">
       <form method="get" action="/results">
          <div class="form-group horizontal justify-content-center align-items-center">
             <label for="textAreaMensaje" class="text-center horizontal display-4 text-white">Mensaje a analizar</label>
