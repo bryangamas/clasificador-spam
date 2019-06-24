@@ -2,16 +2,19 @@
 {% block content %}
 <div class="col-md-12" >
    <div class="row align-items-center justify-content-center ">
-      <button id="btn-msj-aleatorio" class="btn btn-primary horizontal">
-         Elegir mensaje aleatoriamente
+      <button id="btn-msj-aleatorio-ham" class="btn btn-success mitad-horizontal">
+         Elegir mensaje HAM aleatoriamente
+      </button>
+      <button id="btn-msj-aleatorio-spam" class="btn btn-danger mitad-horizontal">
+         Elegir mensaje SPAM aleatoriamente
       </button>
    </div>
    <div class="row justify-content-center align-items-center">
       <form method="get" action="/results">
          <div class="form-group horizontal justify-content-center align-items-center">
             <label for="textAreaMensaje" class="text-center horizontal display-4 text-white">Mensaje a analizar</label>
-            <textarea id="text-area-msj" required name="mensaje" class="form-control form-control-lg horizontal" id="textAreaMensaje" rows="3"></textarea>
-            <button id="btn-enviar" class="horizontal btn btn-success">
+            <textarea id="text-area-msj" required name="mensaje" class="form-control form-control-lg horizontal" id="textAreaMensaje" rows="3">{{ mensaje }}</textarea>
+            <button id="btn-enviar" class="horizontal btn btn-primary">
                <i class="fas fa-envelope"></i>
                Enviar
             </button>
@@ -19,8 +22,8 @@
       </form>
    </div>
    {% if spam %}
-   <div>
-      <table class="table table-dark">
+   <div class="row justify-content-center align-items-center">
+      <table class="horizontal table table-dark">
          <thead>
             <tr>
                <th scope="col">SPAM</th>

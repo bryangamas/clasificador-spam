@@ -17,20 +17,19 @@ def formulario(request):
 
 def results(request):
    mensaje = request.GET.get('mensaje', '')
-   # PROCESO DE CONVERSIÓN
-   
    (spam, ham) = MNB_PROB(mensaje)
    context = {
       'spam': spam,
-      'ham': ham
+      'ham': ham,
+      'mensaje': mensaje
    }
    return render(request, 'formulario.html', context)
 
 def aleatorio(request):
+   tipo = request.GET.get('tipo', '')
    df = Clasificador.DATASET_ORIGINAL
-   mensaje_elegido = df[df['mensaje']==np.random.choice(df['mensaje'])]
-   print (mensaje_elegido)
-
+   df_acotado = df[df['etiqueta']==tipo]
+   mensaje_elegido = df[df['mensaje']==np.random.choice(df_acotado['mensaje'])]
    context = {
       'mensaje': np.array(mensaje_elegido.mensaje)[0],
       'etiqueta': np.array(mensaje_elegido.etiqueta)[0]

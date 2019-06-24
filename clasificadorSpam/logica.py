@@ -135,7 +135,17 @@ def freq_diccionario(str):
             freq_coincidentes.append((palabra, frecuencia))
     return freq_coincidentes
 
+def convertir_string_clasificador(mensaje):
+    # PROCESO DE CONVERSIÓN
+    df1 = pd.DataFrame({"mensaje":[mensaje]})
+    df1 = df1.apply(lambda x: x.astype(str).str.lower()) # To lower case
+    df1 = df1['mensaje'].str.replace('http\S+|www.\S+', 'httpaddr', case=False) # Reemplazamos urls
+    df1 = df1.replace('\d+', ' number ', regex=True) # Reemplazamos los números
+    df1 = df1.replace('[,.;@#?!&$]+', '', regex=True) # Eliminamos los símbolos
+    return df1.to_string(index=0)
+
 def MNB_PROB(mensaje):
+    mensaje = convertir_string_clasificador(mensaje)
     nuevo_dic = freq_diccionario(mensaje) 
     probs= [0,0]
     for clase in range(0,2):

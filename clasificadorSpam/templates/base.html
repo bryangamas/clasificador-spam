@@ -1,6 +1,7 @@
 {% load staticfiles %}
 
 <head>
+   <title>Clasificador de mensajes SPAM</title>
    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
    <!--link rel="stylesheet" href="{% static 'css/style.css' %}"-->
@@ -34,6 +35,12 @@
 
       .horizontal{
          width: 700px;
+      }
+
+      .mitad-horizontal{
+         margin-right: 15px;
+         margin-left: 15px;
+         width: 300px;
       }
    </style>
 </head>
@@ -69,7 +76,8 @@
          var baseUrl = getUrl .protocol + "//" + getUrl.host ;
          
          $btn_entrenar = $("#btn-entrenar")
-         $btn_mensaje_aleatorio = $("#btn-msj-aleatorio")
+         $btn_mensaje_aleatorio_ham = $("#btn-msj-aleatorio-ham")
+         $btn_mensaje_aleatorio_spam = $("#btn-msj-aleatorio-spam")
          $area_mensaje = $("#text-area-msj")
 
          $btn_entrenar.on("click", ()=>{
@@ -77,15 +85,23 @@
             //$btn_entrenar.attr('disabled', true);
          })
 
-         $btn_mensaje_aleatorio.on("click", ()=>{
+         $btn_mensaje_aleatorio_ham.on("click", ()=>{
             $.ajax({
-               url: baseUrl + "/aleatorio", 
+               url: baseUrl + "/aleatorio?tipo=ham", 
                success: function(result){
                   $area_mensaje.html(result.mensaje);
                }
             });
          })
 
+         $btn_mensaje_aleatorio_spam.on("click", ()=>{
+            $.ajax({
+               url: baseUrl + "/aleatorio?tipo=spam", 
+               success: function(result){
+                  $area_mensaje.html(result.mensaje);
+               }
+            });
+         })
       });
    </script>
 </body>
