@@ -46,7 +46,7 @@ Para mayor información, consultar [aquí](https://www.notion.so/Implementaci-n-
 
 Producto de las pruebas realizadas con el conjunto de datos definido para este fin, logramos que el sistema alcance un 98% de aciertos en la clasificación de los mensajes.
 
-## 6.- En producción
+## 7. En producción
 
 Puedes encontrar una demo de la aplicación [aquí](https://bg-spam-classifier.herokuapp.com).
 Podrás escoger un mensaje spam o ham aleatoriamente y encontrar la probabilidad, determinada por el sistema, de que dicho mensaje sea spam.
@@ -55,6 +55,6 @@ Podrás escoger un mensaje spam o ham aleatoriamente y encontrar la probabilidad
 
 ![Resultado](img/result.jpg)
 
-**Contacto:**
+**Contácteme:**
 
 [![Twitter](https://img.icons8.com/fluent/x/twitter.png)](https://twitter.com/bgamas_) [![Linkedin](https://img.icons8.com/fluent/x/linkedin.png)](https://pe.linkedin.com/in/bryan-gama-solórzano-a7bb58175)
